@@ -27,5 +27,9 @@ namespace NetworkGuardian.Services
             }
             return false;
         }
+        public bool IsInternetAvailable()
+        {
+            return NetworkInterface.GetIsNetworkAvailable();
+        }
     }
 }

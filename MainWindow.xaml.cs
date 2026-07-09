@@ -12,9 +12,6 @@ using NetworkGuardian.Services;
 
 namespace NetworkGuardian
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -29,6 +26,7 @@ namespace NetworkGuardian
             {
                 TpStatus.Text = "TP-Link : 🔴 Disconnected";
             }
+
             if (monitor.IsTendaConnected())
             {
                 TendaStatus.Text = "Tenda : 🟢 Connected";
@@ -36,6 +34,15 @@ namespace NetworkGuardian
             else
             {
                 TendaStatus.Text = "Tenda : 🔴 Disconnected";
+            }
+
+            if (monitor.IsInternetAvailable())
+            {
+                InternetStatus.Text = "Internet : 🟢 Connected";
+            }
+            else
+            {
+                InternetStatus.Text = "Internet : 🔴 Disconnected";
             }
         }
     }
