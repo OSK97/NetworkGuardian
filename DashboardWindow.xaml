@@ -6,5 +6,57 @@
         xmlns:local="clr-namespace:NetworkGuardian"
         mc:Ignorable="d"
         Title="DashboardWindow" Height="450" Width="800">
-    <Grid Margin="0,-16,0,0"/>
+	<Grid Margin="20">
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<TextBlock
+			Text="🛡 Network Guardian"
+			FontSize="28"
+			FontWeight="Bold"
+			Margin="0,0,0,20"/>
+
+		<TextBlock
+			Grid.Row="1"
+			x:Name="TpStatus"
+			Text="TP-Link : Unknown"
+			FontSize="18"
+			Margin="0,10"/>
+
+		<TextBlock
+			Grid.Row="2"
+			x:Name="TendaStatus"
+			Text="Tenda : Unknown"
+			FontSize="18"
+			Margin="0,10"/>
+
+		<TextBlock
+			Grid.Row="3"
+			x:Name="WifiDirectStatus"
+			Text="Wi-Fi Direct : Unknown"
+			FontSize="18"
+			Margin="0,10"/>
+
+		<TextBlock
+			Grid.Row="4"
+			x:Name="InternetStatus"
+			Text="Internet : Unknown"
+			FontSize="18"
+			Margin="0,10"/>
+
+		<TextBlock
+			Grid.Row="5"
+			x:Name="HotspotStatus"
+			Text="Hotspot : Unknown"
+			FontSize="18"
+			Margin="0,10"/>
+
+	</Grid>
 </Window>

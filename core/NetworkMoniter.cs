@@ -1,18 +1,31 @@
-﻿using System.Net.NetworkInformation;
+﻿using System.Diagnostics;
+using System.Net.NetworkInformation;
 
-namespace NetworkGuardian.Core
+namespace NetworkGuardian.Services
 {
     public class NetworkMonitor
     {
-        public void PrintAllAdapters()
+        public bool IsTpLinkConnected()
         {
-            NetworkInterface[] adapters = NetworkInterface.GetAllNetworkInterfaces();
-
-            foreach (NetworkInterface adapter in adapters)
+            foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces())
             {
-                System.Diagnostics.Debug.WriteLine(adapter.Name);
+                if (adapter.Name.Equals("tp", StringComparison.OrdinalIgnoreCase))
+                {
+                    return adapter.OperationalStatus == OperationalStatus.Up;
+                }
             }
+            return false;
+        }
+        public bool IsTendaConnected()
+        {
+            foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (adapter.Name.Equals("tenda", StringComparison.OrdinalIgnoreCase))
+                {
+                    return adapter.OperationalStatus == OperationalStatus.Up;
+                }
+            }
+            return false;
         }
     }
 }
-
